@@ -50,11 +50,22 @@ export default {
   provide() {
     return {
       resources: this.storedResources,
+      addResources: this.addResources,
     };
   },
   methods: {
     setSelectedComponent(element) {
       this.selectedComponenet = element;
+    },
+    addResources(title, description, link) {
+      const newResources = {
+        id: new Date().toISOString(),
+        title,
+        description,
+        link,
+      };
+      this.storedResources.unshift(newResources);
+      this.selectedComponenet = "stored-resources";
     },
   },
 };
