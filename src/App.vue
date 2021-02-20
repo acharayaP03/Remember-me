@@ -13,24 +13,6 @@ export default {
     TheHeader,
     TheResources,
   },
-  data() {
-    return {
-      storedResources: [
-        {
-          id: "official-guide",
-          title: "Offical Guide",
-          description: "The official Vue.js documentation",
-          link: "https://vuejs.org",
-        },
-        {
-          id: "official-guide",
-          title: "Official guide for React",
-          description: "The official React.js documentation",
-          link: "https://react.js",
-        },
-      ],
-    };
-  },
 };
 </script>
 <style>

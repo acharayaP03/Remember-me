@@ -1,11 +1,11 @@
 <template>
   <ul>
     <learning-resources
-      v-for="resources in storedResources"
-      :key="resources.id"
-      :title="resources.title"
-      :description="resources.description"
-      :link="resources.link"
+      v-for="resource in resources"
+      :key="resource.id"
+      :title="resource.title"
+      :description="resource.description"
+      :link="resource.link"
     ></learning-resources>
   </ul>
 </template>
@@ -16,8 +16,8 @@ export default {
   components: {
     LearningResources,
   },
-  props: {
-    storedResources: {
+  inject: {
+    resources: {
       type: Array,
       required: true,
     },
@@ -32,4 +32,5 @@ ul {
   padding: 0;
   margin: auto;
   max-width: 40rem;
-}</style>
+}
+</style>
