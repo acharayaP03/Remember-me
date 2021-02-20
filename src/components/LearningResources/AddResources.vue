@@ -1,4 +1,13 @@
 <template>
+  <base-dialog v-if="isInvalid" title="Invalid Input" @close="confirmError">
+    <template #default>
+      <p class="error">At least one input value is invalid.</p>
+      <p>Please check all inputs and make sure you eneter at leaset one value.</p>
+    </template>
+    <template v-slot:actions>
+      <base-button @click="confirmError">Okay</base-button>
+    </template>
+  </base-dialog>
   <base-card>
     <form @submit.prevent="submitResources">
       <div class="form-control">
@@ -48,6 +57,9 @@ export default {
       }
 
       this.addResources(newTitle, newDescription, newUrl);
+    },
+    confirmError() {
+      this.isInvalid = false;
     },
   },
 };

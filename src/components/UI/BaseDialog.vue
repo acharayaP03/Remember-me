@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div @click="$emit('close')"></div>
   <dialog open>
     <header>
       <slot name="header">
@@ -7,16 +7,19 @@
       </slot>
     </header>
     <section>
-      <slot> </slot>
+      <slot></slot>
     </section>
     <menu>
-      <slot name="actions"></slot>
+      <slot name="actions">
+        <base-button @click="$emit('close')">Close</base-button>
+      </slot>
     </menu>
   </dialog>
 </template>
 
 <script>
 export default {
+  emits: ["close"],
   props: {
     title: {
       type: String,
@@ -78,4 +81,5 @@ menu {
     left: calc(50% - 20rem);
     width: 40rem;
   }
-}</style>
+}
+</style>
