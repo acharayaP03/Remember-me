@@ -8,7 +8,9 @@
         >Add Resources</base-button
       >
     </base-card>
-    <component :is="selectedComponenet"></component>
+    <keep-alive>
+      <component :is="selectedComponenet"></component>
+    </keep-alive>
   </div>
 </template>
 
