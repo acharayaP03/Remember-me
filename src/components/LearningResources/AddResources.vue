@@ -30,11 +30,22 @@
 <script>
 export default {
   inject: ["addResources"],
+  data() {
+    return {
+      isInvalid: false,
+    };
+  },
   methods: {
     submitResources() {
       const newTitle = this.$refs.title.value;
       const newDescription = this.$refs.description.value;
       const newUrl = this.$refs.url.value;
+      //check if the the fields are empty
+      if (newTitle.trim() === "" || newDescription.trim() === "" || newUrl.trim() === "") {
+        this.isInvalid = true;
+
+        return;
+      }
 
       this.addResources(newTitle, newDescription, newUrl);
     },
