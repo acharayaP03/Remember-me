@@ -53,6 +53,7 @@ export default {
     return {
       resources: this.storedResources,
       addResources: this.addResources,
+      deleteResources: this.deleteResources
     };
   },
   methods: {
@@ -69,6 +70,12 @@ export default {
       this.storedResources.unshift(newResources);
       this.selectedComponenet = "stored-resources";
     },
+    deleteResources(resId){
+      //first get the index of the array
+      const currentIndex = this.storedResources.findIndex( item => item.id === resId);
+      //with that index sorted, lest slice it up from the original array. 
+      this.storedResources.splice(currentIndex, 1);
+    }
   },
 };
 </script>
